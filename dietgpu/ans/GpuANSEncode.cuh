@@ -6,6 +6,7 @@
  */
 #pragma once
 
+#include <thrust/execution_policy.h>
 #include "dietgpu/ans/BatchPrefixSum.cuh"
 #include "dietgpu/ans/GpuANSCodec.h"
 #include "dietgpu/ans/GpuANSStatistics.cuh"
@@ -499,8 +500,9 @@ struct Align {
   typedef uint32_t argument_type;
   typedef uint32_t result_type;
 
-  __thrust_exec_check_disable__ template <typename T>
-  __host__ __device__ uint32_t operator()(T x) const {
+  template <typename T>
+  __host__ __device__
+  uint32_t operator()(T x) const {
     constexpr int kDiv = B / sizeof(A);
     constexpr int kSize = kDiv < 1 ? 1 : kDiv;
 

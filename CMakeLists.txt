@@ -6,8 +6,13 @@
 
 cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 project(dietgpu LANGUAGES CUDA CXX VERSION 1.0)
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_C_STANDARD 11)
+
+# Find PyTorch
+find_package(Torch REQUIRED)
+include_directories(${TORCH_INCLUDE_DIRS})
 
 include(CheckLanguage)
 check_language(CUDA)
