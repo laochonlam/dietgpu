@@ -22,7 +22,7 @@ Documentation is [available in the wiki](https://github.com/facebookresearch/die
 Clone this repo using
 
 ```shell
-git clone --recursive https://github.com/facebookresearch/dietgpu
+git clone --recursive git@github.com:laochonlam/dietgpu.git
 cd dietgpu
 ```
 
